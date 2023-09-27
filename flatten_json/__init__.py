@@ -386,11 +386,8 @@ def unflatten(flat_dict, separator='_'):
         if i != len(list_keys) - 1:
             split_key = item.split(separator)
             next_split_key = list_keys[i + 1].split(separator)
-            if not split_key == next_split_key[:-1]:
-                _unflatten(unflattened_dict, item.split(separator),
-                           flat_dict[item])
-            else:
-                pass  # if key contained in next key, json will be invalid.
+            _unflatten(unflattened_dict, item.split(separator),
+                flat_dict[item])
         else:
             #  last element
             _unflatten(unflattened_dict, item.split(separator),
